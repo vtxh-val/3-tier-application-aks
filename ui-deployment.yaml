@@ -14,12 +14,12 @@ spec:
     spec:
       containers:
       - name: ui-container
-        image: valerietxh/ui:latest
+        image: valerietxh/ui-aks:latest
         ports:
         - containerPort: 80
         env:
         - name: API_URL
-          value: "ui-service:80"
+          value: "http://${{ secrets.API_URL }}:80"
 ---
 apiVersion: v1
 kind: Service
